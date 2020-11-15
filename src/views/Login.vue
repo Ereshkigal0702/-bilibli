@@ -1,18 +1,11 @@
 <template>
   <div>
-    <login-top middleTop="注册Bilibili">
-      <div slot="right" style="font-size:3.611vw" @click="$router.push('/login')">登录</div>
+    <login-top middleTop="登录Bilibili">
+        <div slot="right" style="font-size:3.611vw" @click="$router.push('./register')">新用户?</div>
     </login-top>
     <login-text
-      label="姓名"
-      aria-placeholder="请输入姓名"
-      @valueInput="(res) => (formData.name = res)"
-      style="margin: 4.167vw 0"
-      :rule="rule"
-    >
-    </login-text>
-    <login-text
       label="用户名"
+      style="margin: 4.167vw 0"
       placeholder="请输入用户名"
       :rule="rule"
       @valueInput="(res) => (formData.username = res)"
@@ -26,7 +19,7 @@
       @valueInput="(res) => (formData.password = res)"
     >
     </login-text>
-    <login-btn btnText="注册" @registerClick="registerClick"></login-btn>
+    <login-btn btnText="登录" @registerClick="registerClick"></login-btn>
   </div>
 </template>
 
@@ -39,7 +32,6 @@ export default {
     return {
       rule: "^.{6,16}$",
       formData:{
-        name: "",
         username: "",
         password: "",
       }
@@ -49,11 +41,10 @@ export default {
     async registerClick() {
       let reg = new RegExp(this.rule);
       if (
-        reg.test(this.formData.name) &&
         reg.test(this.formData.username) &&
         reg.test(this.formData.password)
       ) {
-        const res = await this.$http.post("/register", this.formData);
+        const res = await this.$http.post("/login", this.formData);
         res.data.code === 200 ? this.$message.success(res.data.msg) : this.$message.fail(res.data.msg);
       }
     }
