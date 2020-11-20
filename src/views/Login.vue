@@ -1,7 +1,13 @@
 <template>
   <div>
     <login-top middleTop="登录Bilibili">
-        <div slot="right" style="font-size:3.611vw" @click="$router.push('./register')">新用户?</div>
+      <div
+        slot="right"
+        style="font-size: 3.611vw"
+        @click="$router.push('./register')"
+      >
+        新用户?
+      </div>
     </login-top>
     <login-text
       label="用户名"
@@ -31,10 +37,10 @@ export default {
   data() {
     return {
       rule: "^.{6,16}$",
-      formData:{
+      formData: {
         username: "",
         password: "",
-      }
+      },
     };
   },
   methods: {
@@ -45,16 +51,25 @@ export default {
         reg.test(this.formData.password)
       ) {
         const res = await this.$http.post("/login", this.formData);
-        res.data.code === 200 ? this.$message.success(res.data.msg) : this.$message.fail(res.data.msg);
+        if (res.data.code === 200) {
+          this.$message.success(res.data.msg);
+          localStorage.setItem("id", res.data.id);
+          localStorage.setItem("token", res.data.token);
+          setTimeout(() => {
+            this.$router.push("/userinfo");
+          }, 1000);
+        } else {
+          this.$message.fail(res.data.msg);
+        }
       }
-    }
+    },
   },
   components: {
     LoginTop,
     LoginText,
     LoginBtn,
   },
-}
+};
 </script>
 
 <style lang="less">
