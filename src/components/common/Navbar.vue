@@ -22,7 +22,7 @@ export default {};
 
 <style lang="less">
 .navbar {
-  height: 12.5vw;
+  height: 12.5vh;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -37,16 +37,16 @@ export default {};
     flex: 1;
     .input {
       background-color: #f4f4f4;
-      border-radius: 5px;
-      margin: 0 10px;
+      border-radius: 1.3889vw;
+      margin: 0 2.778vw;
       width: 90%;
       color: #aaa;
-      height: 26px;
-      line-height: 26px;
+      height: 7.222vh;
+      line-height: 7.222vh;
       position: relative;
       i {
-        padding-right: 5px;
-        transform: translate(5px, -60%);
+        padding-right: 1.3889vw;
+        transform: translate(1.3889vw, -125%);
         top: 50%;
         color: #aaa;
       }
@@ -57,16 +57,16 @@ export default {};
     justify-content: center;
     align-items: center;
     img {
-      height: 24px;
-      width: 24px;
+      height: 6.667vh;
+      width: 6.667vw;
     }
     p {
       background-color: #fb7299;
-      margin: 0 8px;
+      margin: 0 2.222vw;
       color: #fff;
-      font-size: 13px;
-      border-radius: 3px;
-      padding: 5px 10px;
+      font-size: 3.611vw;
+      border-radius: 0.833vw;
+      padding: 1.3889vh 2.778vw;
     }
   }
 }

@@ -25,7 +25,7 @@
           </p>
         </div>
         <div>
-          <div class="user_button">编辑资料</div>
+          <div class="user_button" @click="$router.push('/edit')">编辑资料</div>
         </div>
       </div>
     </div>
