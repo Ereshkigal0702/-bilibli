@@ -10,6 +10,8 @@ import { Field } from 'vant';
 import { Toast } from 'vant';
 import { Icon } from 'vant';
 import { Uploader } from 'vant';
+import { ActionSheet } from 'vant';
+import { Dialog } from 'vant';
 
 //设置axios
 const request = axios.create({
@@ -18,7 +20,7 @@ const request = axios.create({
 //设置拦截器，为每个请求加上token
 //config就是一个请求
 request.interceptors.request.use(config => {
-  if (localStorage.getItem('token') !== '' || localStorage.getItem('token') !== undefined){
+  if (localStorage.getItem('token') !== '' || localStorage.getItem('token') !== undefined) {
     config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
   }
   return config;
@@ -33,6 +35,8 @@ Vue.use(Field);
 Vue.use(Toast);
 Vue.use(Icon);
 Vue.use(Uploader);
+Vue.use(ActionSheet);
+Vue.use(Dialog);
 
 new Vue({
   router,
