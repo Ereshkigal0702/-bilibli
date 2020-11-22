@@ -9,6 +9,7 @@ import axios from 'axios';
 import { Field } from 'vant';
 import { Toast } from 'vant';
 import { Icon } from 'vant';
+import { Uploader } from 'vant';
 
 //设置axios
 const request = axios.create({
@@ -31,6 +32,7 @@ Vue.use(less);
 Vue.use(Field);
 Vue.use(Toast);
 Vue.use(Icon);
+Vue.use(Uploader);
 
 new Vue({
   router,
